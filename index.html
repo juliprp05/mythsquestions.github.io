@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee4b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-white dark:bg-slate-900 shadow-xl overflow-x-hidden">
+<header class="sticky top-0 z-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-primary/10">
+<div class="flex items-center p-4 justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">pets</span>
+<h1 class="text-xl font-bold tracking-tight">PetHealth Hub</h1>
+</div>
+<div class="flex gap-3">
+<button class="p-2 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">search</span>
+</button>
+<button class="p-2 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex px-4 gap-6 overflow-x-auto no-scrollbar">
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 pb-3 pt-2 whitespace-nowrap" href="#">
+<span class="text-sm font-semibold">About</span>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-primary text-primary pb-3 pt-2 whitespace-nowrap" href="#">
+<span class="text-sm font-bold">Forums</span>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 pb-3 pt-2 whitespace-nowrap" href="#">
+<span class="text-sm font-semibold">Gallery</span>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-slate-500 pb-3 pt-2 whitespace-nowrap" href="#">
+<span class="text-sm font-semibold">Vet Finder</span>
+</a>
+</div>
+</header>
+<main class="flex-1 p-4 space-y-4">
+<div class="py-2">
+<div class="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-sm">warning</span>
+                    Emergency
+                </div>
+<h2 class="text-2xl font-bold leading-tight">Help with injured pet</h2>
+</div>
+<!-- Post 1: Thread Starter -->
+<article class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
+<div class="p-4 border-b border-slate-50 dark:border-slate-700/50">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="size-10 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Profile photo of Ivana_88" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtb4lagF6L0V4jbok5R8nzNnX96gKuz0W83RwzMbnU2zTLMESBqUjqlRP4drBIFVxJGaIHNZ8XVL2hoa9mePNg328aciJKtUVmuJkscI7PFZAbuODSVl2wTZoIrCZM8EL89U3-pt5mmnPbQLfqXmHDHV6GspcmfOiudRwAsGdP01THuzK1JsaX47y49Y8ysmQv2dKejiHmAeIOutQfkQA7lu6YoJh9lTXuW1GIG7TCmAgjPsAYQW_tJgSRmaC2MtXaw6ELQHgkubY"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-slate-900 dark:text-slate-100">Ivana_88</h3>
+<span class="material-symbols-outlined text-xs text-slate-400 cursor-pointer hover:text-primary">edit</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-primary text-[10px] font-bold text-slate-900 uppercase">Thread Starter</span>
+<span class="text-[11px] text-slate-400">Posted 28 Oct 18:12</span>
+</div>
+</div>
+</div>
+<button class="text-slate-400">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+<div class="p-4 bg-primary/5">
+<div class="aspect-video w-full rounded-lg mb-4 bg-slate-200 dark:bg-slate-700 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up photo of a small pet hamster" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy8BtreVgINtBwp2rakjLP-5nf8PS2UMyjwYqKXJOYz9IinneLWv1Mj84MunWucIuUEZno7oVNv1LeY1D-AIdfhsjVjJIm5mes2tM7EW646o98u286OtYgJeMqpVrVx7M0d_Dyh7h7tfFXi-FYXv_1Nz8Hn_zvfEdplUqnSkSGh6THHGunfxw4Yer66k7OnRcDntMX8O-7CvW-_L9HjfNkWiGBN5C1cPOHPHERT0Akqx6ZggJNT_Gfd8RJZ0TaKw2oo8y_whKaQbM"/>
+</div>
+<div class="relative group">
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                            Hello everyone! Is it okay to give pet-safe pain relief to my hamster? She fell from her wheel and seems to be hurting. I can't get to the vet until Monday. Any advice?
+                        </p>
+<span class="absolute top-0 -right-1 material-symbols-outlined text-sm text-slate-400 opacity-0 group-hover:opacity-100 cursor-pointer hover:text-primary transition-opacity">edit</span>
+</div>
+</div>
+</article>
+<!-- Post 2: Member -->
+<article class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
+<div class="p-4">
+<div class="flex justify-between items-start mb-3">
+<div class="flex gap-3">
+<div class="size-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Profile photo of NellieB79" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-a2D8KjQJl5-SwYf9oULS9E0ucoE954DziepNoOLizTgHce2TUiBh1nKWXcDVT8cry4MB1gGOXmfNGR3W0Yvhqix4VCkgzaRyfuh6ibOHKdSwsGaXVMhmdhKA7AVpe1tuNuhLd37_OgT-G867nn3s0CAw5gRmrbXbWOJue731OGQcZPlcybpakbLiwWMGL2WWlrfPmZcHInWZzGY7koeX0ULHX72U5xzfxuh7my4hHU1lC9kwTvGByIY-G53zN5CcGhC4P047bx4"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-slate-900 dark:text-slate-100">NellieB79</h3>
+<span class="material-symbols-outlined text-xs text-slate-400 cursor-pointer hover:text-primary">edit</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase">Member</span>
+<span class="text-[11px] text-slate-400">Posted 28 Oct 18:45</span>
+</div>
+</div>
+</div>
+</div>
+<div class="relative group">
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                            I always check with my vet before giving my pets medicine. Better safe than sorry, some human meds are very dangerous for small animals.
+                        </p>
+<span class="absolute top-0 -right-1 material-symbols-outlined text-sm text-slate-400 opacity-0 group-hover:opacity-100 cursor-pointer hover:text-primary transition-opacity">edit</span>
+</div>
+</div>
+</article>
+<!-- Post 3: Expert Member -->
+<article class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-primary/20 dark:border-primary/20 overflow-hidden">
+<div class="p-4 bg-primary/5 border-b border-primary/10">
+<div class="flex justify-between items-start">
+<div class="flex gap-3">
+<div class="size-10 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Profile photo of Frank the Vet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMQcxH1G57h-DjIckH1-OaZWLsfmAjoK8-t461F-5oQJjuH-mED_mlBD9kR9GMwMbchsGbAWm_k0P_oDeU9Rrfn8zAzpwwIZAE8EoMEUYMs0K0Da7vECI5cu074MaZ3QuzXIY6XWCW3PAf5hr2Wu2wiTk1_DSzlq1_gbSHeybqg-bg3JBBdShkhQzUgRIROwmJE8P3WdiRo0_VLjZMTrE4sBQSjICfvLUEaSrarTZZfRlVdAXcm8bkvVFfkaFRX42gfcUllYyLVe0"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-slate-900 dark:text-slate-100">Frank</h3>
+<span class="material-symbols-outlined text-xs text-slate-400 cursor-pointer hover:text-primary">edit</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-[10px] font-bold uppercase">Vet Expert</span>
+<span class="text-[11px] text-slate-400">Posted 28 Oct 19:20</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+</div>
+<div class="p-4">
+<div class="relative group">
+<p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                            Hello Ivana, I am a veterinarian specializing in small pets. It's generally not advised to give human meds without guidance. Keep her warm and quiet until your appointment. Ensure she has easy access to water and food on the cage floor.
+                        </p>
+<span class="absolute top-0 -right-1 material-symbols-outlined text-sm text-slate-400 opacity-0 group-hover:opacity-100 cursor-pointer hover:text-primary transition-opacity">edit</span>
+</div>
+</div>
+</article>
+</main>
+<footer class="sticky bottom-0 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 pb-2">
+<div class="flex justify-between items-center px-6 py-3">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-[10px] font-medium">Forums</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-[10px] font-medium">Alerts</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+<div class="flex px-4 pb-4">
+<div class="flex-1 relative">
+<input class="w-full bg-background-light dark:bg-slate-800 border-none rounded-full py-2.5 px-4 text-sm focus:ring-2 focus:ring-primary" placeholder="Add to the discussion..." type="text"/>
+<button class="absolute right-2 top-1.5 size-8 bg-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm">send</span>
+</button>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
