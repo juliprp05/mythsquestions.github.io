@@ -1,324 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Myths & Questions | The Enigma Forum</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Roboto & Orbitron for title -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        mystery: {
-                            900: '#0B0D17',
-                            800: '#141727',
-                            700: '#1D2235',
-                            accent: '#6A2BFF',
-                            glow: '#A568FF',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Roboto', 'sans-serif'],
-                        display: ['Orbitron', 'sans-serif'],
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #0B0D17;
-            color: #E2E8F0;
-        }
-        
-        .glass-nav {
-            background: rgba(20, 23, 39, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(106, 43, 255, 0.2);
-        }
 
-        .card-hover {
-            transition: all 0.3s ease;
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mythos Forum - Mythsquestions</title>
+<!-- Tailwind CSS v3 CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts for Serif Look -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&amp;family=Cormorant+Garamond:wght@400;600&amp;family=MedievalSharp&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mythos-dark': '#0b1622',
+            'mythos-gold': '#c5a368',
+            'mythos-gold-dim': '#a68a56',
+            'mythos-paper': '#d2b48c',
+            'post-bg': '#1a2430',
+          },
+          fontFamily: {
+            'serif-title': ['Cinzel', 'serif'],
+            'serif-body': ['Cormorant Garamond', 'serif'],
+            'archaic': ['MedievalSharp', 'cursive'],
+          }
         }
-
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(106, 43, 255, 0.3);
-            border-color: rgba(165, 104, 255, 0.5);
-        }
-
-        .ambient-glow {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(106,43,255,0.15) 0%, rgba(11,13,23,0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .top-glow { top: -100px; right: 10%; }
-        .bottom-glow { bottom: 20%; left: 5%; }
-        
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0B0D17; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1D2235; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6A2BFF; 
-        }
-    </style>
+      }
+    }
+  </script>
+<style data-purpose="custom-backgrounds">/* Simulating the parchment texture on the right and dark background on left */
+body {
+    background: linear-gradient(to right, #0b1622 0%, #0b1622 65%, #c2a378 100%);
+    background-attachment: fixed;
+    min-height: 100vh
+    }
+/* Decorative Ornate Borders via SVG Backgrounds */
+.ornate-border-1 {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDLWJ2njikRTj3or1dATLh7Wih7smJn1VH0gLq16SNg_VB7zIbGVG82lAjTntWVasNBU6OCl3GMHFGBWi1Z3e9645XpSvhLRpKL-VZGNkn4E2yN9D8DwaVDpGvY_he7j-Zt5PwPKZPOwFou3w_0K8BLtlPK-BaFxpLYjEKsKymQ7phsB6L8QON_q8fd3gmYvXpFDiHrTjJSKO6nYWEVNmNo_K3tmCSDfT-9ZAEaDHfxUjy97qO_-Ek0Uu57PALInX7EZ-eFxSeRPNs);
+    background-size: cover;
+    height: 60px;
+    border-bottom: 1px solid #c5a368
+    }
+.ornate-border-2 {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBkiNLOj_1hxOdQ2FZbvcgAcs6GBCs9veaXK_6WthyMhAOxTsVdGpuI8pM5wmrpGKP7vvnmOjtpN-nctUOEXvnLZfFU6GuRLzmL0v3K1TQUAWP4mNCef8fSPvPkfm8rjtNCf1b6b6kNrRR3lMkz10w69xhziPzt4rBkmANJdEvtkFZpGGTMnrM__1lkMQIXIgg59MKrFRxbLpWdsOLm6b_VTM760T3poaFVPXVlkZVH54mlmSsoHEH1S0Z3MdmW1I0OpPf2leNQ1Vg);
+    background-size: cover;
+    height: 60px;
+    border-bottom: 1px solid #c5a368
+    }
+.ornate-border-3 {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDWnAQxrHhrnSU26jnweenW96XUoMn_cllqDTOpZtmiyhA3K9gwvjaBkEspgMZAbT5snecvTcXuwEd-nh29EjAEbCrCaS7PpFZJoDzhSNG8n0aK8Kev2iheGR4W6WVnKrZAEDcwMRX4bNs-lQ9qEwXJRiJHxMrrW2ozEUJF4UuxEabetcLPMHx9chyvGaYGQPx5it2qiwHwh3FDFkwDmriumUNBeiDMXvewh7rZe9Q2U8mIHWRDtgfS_WO7lmNSvq5augqnv2TkspE);
+    background-size: cover;
+    height: 60px;
+    border-bottom: 1px solid #c5a368
+    }
+.feather-icon {
+    filter: sepia(100%) saturate(300%) hue-rotate(10deg)
+    }</style>
 </head>
-<body class="antialiased relative overflow-x-hidden min-h-screen">
-
-    <!-- Ambient background glows -->
-    <div class="ambient-glow top-glow animate-pulse-slow"></div>
-    <div class="ambient-glow bottom-glow animate-pulse-slow"></div>
-
-    <div class="relative z-10 flex flex-col min-h-screen">
-        <!-- Navigation -->
-        <nav class="glass-nav fixed w-full top-0 z-50">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <!-- Logo -->
-                    <div class="flex-shrink-0 flex items-center cursor-pointer group">
-                        <span class="material-icons text-mystery-accent group-hover:text-mystery-glow transition-colors text-2xl mr-2">visibility</span>
-                        <h1 class="font-display font-bold text-xl tracking-wider text-white group-hover:text-mystery-glow transition-colors">
-                            MYTHS<span class="text-mystery-accent">&</span>QUESTIONS
-                        </h1>
-                    </div>
-                    
-                    <!-- Desktop Menu -->
-                    <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-8">
-                            <a href="#" class="text-white bg-mystery-700/50 px-3 py-2 rounded-md text-sm font-medium border border-mystery-accent/30 transition-all hover:bg-mystery-accent/20 hover:border-mystery-glow/60">Forums</a>
-                            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Latest Mysteries</a>
-                            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Submit Theory</a>
-                            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Archives</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Profile & Search -->
-                    <div class="flex items-center space-x-4">
-                        <button class="text-gray-400 hover:text-white transition-colors">
-                            <span class="material-icons">search</span>
-                        </button>
-                        <button class="text-gray-400 hover:text-white transition-colors">
-                            <span class="material-icons">notifications</span>
-                        </button>
-                        <div class="h-8 w-8 rounded-full bg-gradient-to-tr from-mystery-accent to-purple-800 p-0.5 cursor-pointer hover:scale-105 transition-transform">
-                            <div class="h-full w-full rounded-full bg-mystery-900 flex items-center justify-center">
-                                <span class="text-xs font-bold text-mystery-glow">U</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Main Content -->
-        <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 w-full">
-            
-            <!-- Page Header -->
-            <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between border-b border-mystery-700 pb-5">
-                <div>
-                    <h2 class="text-3xl font-display font-bold text-white mb-2 tracking-wide">
-                        The Enigma <span class="text-mystery-accent">Lounge</span>
-                    </h2>
-                    <p class="text-gray-400 max-w-2xl text-sm leading-relaxed">
-                        Welcome to the vanguard of unsolved mysteries. Discuss ancient myths, unexplained phenomena, and cryptic questions that have baffled humanity for centuries.
-                    </p>
-                </div>
-                <button class="mt-4 md:mt-0 bg-mystery-accent hover:bg-mystery-glow text-white px-6 py-2.5 rounded-lg text-sm font-medium transition-colors shadow-[0_0_15px_rgba(106,43,255,0.3)] hover:shadow-[0_0_20px_rgba(165,104,255,0.5)] flex items-center justify-center">
-                    <span class="material-icons text-sm mr-2">add</span> Start New Thread
-                </button>
-            </div>
-
-            <!-- Categories / Threads Layout -->
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                
-                <!-- Main Threads Feed -->
-                <div class="lg:col-span-3 space-y-4">
-                    
-                    <!-- Thread 1 -->
-                    <div class="bg-mystery-800 border border-mystery-700 rounded-xl p-5 card-hover cursor-pointer relative overflow-hidden group">
-                        <!-- Pinned Indicator -->
-                        <div class="absolute top-0 right-0 w-16 h-16 overflow-hidden">
-                            <div class="absolute bg-mystery-accent text-white text-[10px] font-bold py-1 px-8 text-center -rotate-45 transform right-[-30px] top-[15px] shadow-sm">
-                                PINNED
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 flex flex-col items-center justify-center bg-mystery-900 border border-mystery-700 rounded-lg w-12 h-12 text-gray-400 group-hover:text-mystery-glow group-hover:border-mystery-glow/50 transition-colors">
-                                <span class="material-icons text-xl mb-[-4px]">keyboard_arrow_up</span>
-                                <span class="text-xs font-bold">4.2k</span>
-                            </div>
-                            <div class="flex-grow">
-                                <div class="flex items-center gap-2 mb-1">
-                                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-900/40 text-purple-400 border border-purple-800/50 uppercase tracking-wider">Historical</span>
-                                    <span class="text-xs text-gray-500 flex items-center"><span class="material-icons text-[12px] mr-1">schedule</span> Posted 2h ago by <span class="text-gray-300 font-medium ml-1">CryptidHunter</span></span>
-                                </div>
-                                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-mystery-glow transition-colors">The Lost Library of Alexandria: Did the most important texts survive?</h3>
-                                <p class="text-sm text-gray-400 line-clamp-2 leading-relaxed mb-3">
-                                    New archaeological findings suggest that a secretive sect intentionally moved the most esoteric and advanced manuscripts weeks before the great fire. I've cross-referenced Roman ledgers with...
-                                </p>
-                                <div class="flex items-center gap-4 text-gray-500 text-xs font-medium">
-                                    <span class="flex items-center hover:text-white transition-colors"><span class="material-icons text-[16px] mr-1">chat_bubble_outline</span> 342 Replies</span>
-                                    <span class="flex items-center hover:text-white transition-colors"><span class="material-icons text-[16px] mr-1">visibility</span> 12.5k Views</span>
-                                    <span class="flex items-center hover:text-white transition-colors ml-auto"><span class="material-icons text-[16px] mr-1">share</span> Share</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Thread 2 -->
-                    <div class="bg-mystery-800 border border-mystery-700 rounded-xl p-5 card-hover cursor-pointer group">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 flex flex-col items-center justify-center bg-mystery-900 border border-mystery-700 rounded-lg w-12 h-12 text-gray-400 group-hover:text-mystery-glow group-hover:border-mystery-glow/50 transition-colors">
-                                <span class="material-icons text-xl mb-[-4px]">keyboard_arrow_up</span>
-                                <span class="text-xs font-bold">1.8k</span>
-                            </div>
-                            <div class="flex-grow">
-                                <div class="flex items-center gap-2 mb-1">
-                                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-900/40 text-blue-400 border border-blue-800/50 uppercase tracking-wider">Phenomena</span>
-                                    <span class="text-xs text-gray-500 flex items-center"><span class="material-icons text-[12px] mr-1">schedule</span> Posted 5h ago by <span class="text-mystery-accent font-medium ml-1">Admin_Oracle</span></span>
-                                </div>
-                                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-mystery-glow transition-colors">The Taos Hum - New frequencies recorded during solar flares</h3>
-                                <p class="text-sm text-gray-400 line-clamp-2 leading-relaxed mb-3">
-                                    We deployed specialized acoustic sensors in Taos, New Mexico during the recent X-class solar flare. The data we captured shows a direct correlation between electromagnetic spikes and the amplitude of the hum...
-                                </p>
-                                <div class="flex items-center gap-4 text-gray-500 text-xs font-medium">
-                                    <span class="flex items-center hover:text-white transition-colors"><span class="material-icons text-[16px] mr-1">chat_bubble_outline</span> 156 Replies</span>
-                                    <span class="flex items-center hover:text-white transition-colors"><span class="material-icons text-[16px] mr-1">visibility</span> 5.2k Views</span>
-                                    <span class="flex items-center hover:text-white transition-colors ml-auto"><span class="material-icons text-[16px] mr-1">share</span> Share</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Thread 3 -->
-                    <div class="bg-mystery-800 border border-mystery-700 rounded-xl p-5 card-hover cursor-pointer group">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 flex flex-col items-center justify-center bg-mystery-900 border border-mystery-700 rounded-lg w-12 h-12 text-gray-400 group-hover:text-mystery-glow group-hover:border-mystery-glow/50 transition-colors">
-                                <span class="material-icons text-xl mb-[-4px]">keyboard_arrow_up</span>
-                                <span class="text-xs font-bold">892</span>
-                            </div>
-                            <div class="flex-grow">
-                                <div class="flex items-center gap-2 mb-1">
-                                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-900/40 text-emerald-400 border border-emerald-800/50 uppercase tracking-wider">Cryptozoology</span>
-                                    <span class="text-xs text-gray-500 flex items-center"><span class="material-icons text-[12px] mr-1">schedule</span> Posted 12h ago by <span class="text-gray-300 font-medium ml-1">TrackerJohn</span></span>
-                                </div>
-                                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-mystery-glow transition-colors">Deep sea anomalies off the coast of Japan (Bloop 2.0?)</h3>
-                                <p class="text-sm text-gray-400 line-clamp-2 leading-relaxed mb-3">
-                                    Does anyone have access to the unredacted NOAA hydrophone data from last week? The initial public release showed a massive low-frequency signature that was scrubbed 20 minutes later.
-                                </p>
-                                <div class="flex items-center gap-4 text-gray-500 text-xs font-medium">
-                                    <span class="flex items-center hover:text-white transition-colors"><span class="material-icons text-[16px] mr-1">chat_bubble_outline</span> 89 Replies</span>
-                                    <span class="flex items-center hover:text-white transition-colors"><span class="material-icons text-[16px] mr-1">visibility</span> 3.1k Views</span>
-                                    <span class="flex items-center hover:text-white transition-colors ml-auto"><span class="material-icons text-[16px] mr-1">share</span> Share</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Pagination (Visual only) -->
-                    <div class="flex justify-center items-center mt-8 space-x-2">
-                        <button class="w-8 h-8 flex items-center justify-center rounded bg-mystery-800 border border-mystery-700 text-gray-400 hover:text-white hover:border-mystery-accent transition-colors"><span class="material-icons text-sm">chevron_left</span></button>
-                        <button class="w-8 h-8 flex items-center justify-center rounded bg-mystery-accent text-white font-bold cursor-default">1</button>
-                        <button class="w-8 h-8 flex items-center justify-center rounded bg-mystery-800 border border-mystery-700 text-gray-400 hover:text-white hover:border-mystery-accent transition-colors">2</button>
-                        <button class="w-8 h-8 flex items-center justify-center rounded bg-mystery-800 border border-mystery-700 text-gray-400 hover:text-white hover:border-mystery-accent transition-colors">3</button>
-                        <span class="text-gray-500 px-1">...</span>
-                        <button class="w-8 h-8 flex items-center justify-center rounded bg-mystery-800 border border-mystery-700 text-gray-400 hover:text-white hover:border-mystery-accent transition-colors">42</button>
-                        <button class="w-8 h-8 flex items-center justify-center rounded bg-mystery-800 border border-mystery-700 text-gray-400 hover:text-white hover:border-mystery-accent transition-colors"><span class="material-icons text-sm">chevron_right</span></button>
-                    </div>
-
-                </div>
-
-                <!-- Sidebar -->
-                <div class="lg:col-span-1 space-y-6">
-                    
-                    <!-- Search Widget -->
-                    <div class="bg-mystery-800 border border-mystery-700 rounded-xl p-5">
-                        <h3 class="text-white font-bold mb-3 flex items-center"><span class="material-icons text-mystery-accent mr-2 text-[18px]">explore</span> Discover</h3>
-                        <div class="relative">
-                            <input type="text" placeholder="Search the unknown..." class="w-full bg-mystery-900 border border-mystery-700 rounded-lg py-2 pl-3 pr-10 text-sm text-white focus:outline-none focus:border-mystery-accent focus:ring-1 focus:ring-mystery-accent transition-all">
-                            <button class="absolute right-2 top-2 text-gray-400 hover:text-mystery-glow transition-colors">
-                                <span class="material-icons text-[18px]">search</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Statistics Widget -->
-                    <div class="bg-mystery-800 border border-mystery-700 rounded-xl p-5">
-                        <h3 class="text-white font-bold mb-4 flex items-center"><span class="material-icons text-mystery-accent mr-2 text-[18px]">poll</span> Nexus Status</h3>
-                        <ul class="space-y-3">
-                            <li class="flex justify-between items-center text-sm">
-                                <span class="text-gray-400">Total Theories</span>
-                                <span class="font-bold text-white font-display">12,408</span>
-                            </li>
-                            <li class="flex justify-between items-center text-sm">
-                                <span class="text-gray-400">Active Seekers</span>
-                                <span class="font-bold text-mystery-glow flex items-center"><span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span> 4,102</span>
-                            </li>
-                            <li class="flex justify-between items-center text-sm">
-                                <span class="text-gray-400">Archived Files</span>
-                                <span class="font-bold text-white font-display">89.2k</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Trending Tags Widget -->
-                    <div class="bg-mystery-800 border border-mystery-700 rounded-xl p-5">
-                        <h3 class="text-white font-bold mb-4 flex items-center"><span class="material-icons text-mystery-accent mr-2 text-[18px]">local_fire_department</span> Trending Anomalies</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-mystery-900 border border-mystery-700 rounded-md text-xs text-gray-300 cursor-pointer hover:border-mystery-accent hover:text-white transition-colors">#Atlantis</span>
-                            <span class="px-2 py-1 bg-mystery-900 border border-mystery-700 rounded-md text-xs text-gray-300 cursor-pointer hover:border-mystery-accent hover:text-white transition-colors">#MandelaEffect</span>
-                            <span class="px-2 py-1 bg-mystery-900 border border-mystery-700 rounded-md text-xs text-gray-300 cursor-pointer hover:border-mystery-accent hover:text-white transition-colors">#Area51</span>
-                            <span class="px-2 py-1 bg-mystery-900 border border-mystery-700 rounded-md text-xs text-gray-300 cursor-pointer hover:border-mystery-accent hover:text-white transition-colors">#VoynichManuscript</span>
-                            <span class="px-2 py-1 bg-mystery-900 border border-mystery-700 rounded-md text-xs text-gray-300 cursor-pointer hover:border-mystery-accent hover:text-white transition-colors">#DarkMatter</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="border-t border-mystery-700 bg-mystery-900/80 mt-auto py-8">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:flex md:justify-between md:text-left">
-                <div class="mb-4 md:mb-0">
-                    <div class="flex items-center justify-center md:justify-start mb-2 group cursor-pointer">
-                        <span class="material-icons text-mystery-accent text-xl mr-2 group-hover:text-mystery-glow transition-colors">visibility</span>
-                        <h2 class="font-display font-bold text-lg tracking-wider text-white group-hover:text-mystery-glow transition-colors">MYTHS<span class="text-mystery-accent">&</span>QUESTIONS</h2>
-                    </div>
-                    <p class="text-gray-500 text-xs">Uncovering the truth behind the veil of the unknown.</p>
-                </div>
-                <div class="flex gap-6 justify-center md:justify-end text-sm text-gray-400">
-                    <a href="#" class="hover:text-white transition-colors">Protocol</a>
-                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
-                    <a href="#" class="hover:text-white transition-colors">Contact The Council</a>
-                </div>
-            </div>
-            <div class="text-center mt-6 text-gray-600 text-[10px] tracking-widest uppercase">
-                &copy; 2026 The Enigma Network. All anomalies reserved.
-            </div>
-        </footer>
-    </div>
-</body>
-</html>
+<body class="text-mythos-gold font-serif-body">
+<!-- BEGIN: MainHeader -->
+<header class="w-full px-12 py-8 flex justify-between items-center" data-purpose="navigation-header">
+<div class="flex items-center gap-4">
+<!-- Placeholder for Logo -->
+<img alt="Mythos Forum Logo" class="w-16 h-16" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi3oDC2TisXoybCECyiHATcnCDN4TPvdkhjRUK6ejsq6GuRj-BXskQ4Nbhj026dYmY5Z7r01F9KkMjPvtK1Du9hBs4kXesszC239aaIz7ZY-6dYul7jWT3XXqCpbrwzuoK04dHQkCwuVgaAajGHXn_laSoIC3ieeCBsv-cv6ATo3xJ4lGD79fSTKulM2QZfTthgup7dKSON5leSrJUhcRT5fneoeELq2ZGwX4ZkdgiU-7TfC80_GAKMttoEPvDXFoX-OAz8eLNm2c"/>
+<h1 class="font-serif-title text-4xl tracking-widest text-mythos-gold">Mythos Forum</h1>
+</div>
+<nav class="flex gap-12 text-xl font-serif-title">
+<a class="hover:text-white transition-colors" href="#">About</a>
+<a class="border-b-2 border-mythos-gold pb-1 hover:text-white transition-colors" href="#">Forums</a>
+<a class="hover:text-white transition-colors" href="#">Gallery</a>
+</nav>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: ContentContainer -->
+<main class="max-w-7xl mx-auto px-12 pb-24">
+<!-- BEGIN: PageTitle -->
+<div class="mb-10 flex items-center gap-4">
+<h2 class="text-5xl font-serif-title text-mythos-gold">Mythsquestions</h2>
+<span class="text-4xl">✒️</span>
+</div>
+<!-- END: PageTitle -->
+<!-- BEGIN: ForumThreads -->
+<section class="space-y-8" data-purpose="forum-posts-list">
+<!-- POST 1: Ivana_88 -->
+<article class="rounded-lg overflow-hidden border border-mythos-gold/30 shadow-2xl bg-post-bg" data-purpose="forum-post">
+<div class="ornate-border-1 w-full opacity-80"></div>
+<div class="flex min-h-[180px]">
+<!-- User Info -->
+<aside class="w-1/4 p-6 flex flex-col items-center justify-center border-r border-mythos-gold/20">
+<div class="mb-2">
+<span class="text-4xl">✒️</span>
+</div>
+<p class="text-xl font-bold">Ivana_88 ✒️</p>
+<span class="mt-2 px-3 py-1 bg-mythos-gold/20 text-mythos-gold border border-mythos-gold/40 text-xs rounded uppercase tracking-tighter">Thread Starter</span>
+</aside>
+<!-- Post Content -->
+<div class="w-3/4 p-8 relative">
+<p class="text-xl leading-relaxed">Greetings fellow lore-seekers!</p>
+<p class="text-xl mt-4 leading-relaxed">Does anyone have reliable sources or theories about the true location of Atlantis? Some say the Mediterranean, others the Atlantic. Any ancient texts or modern findings? ✒️</p>
+<div class="absolute bottom-4 left-8 text-sm text-mythos-gold-dim italic">Posted 28 October 18:12</div>
+<div class="absolute bottom-4 right-8 opacity-50">✒️</div>
+</div>
+</div>
+</article>
+<!-- POST 2: NellieB79 -->
+<article class="rounded-lg overflow-hidden border border-mythos-gold/30 shadow-2xl bg-post-bg" data-purpose="forum-post">
+<div class="ornate-border-2 w-full opacity-80"></div>
+<div class="flex min-h-[180px]">
+<!-- User Info -->
+<aside class="w-1/4 p-6 flex flex-col items-center justify-center border-r border-mythos-gold/20">
+<div class="mb-2">
+<span class="text-4xl">✒️</span>
+</div>
+<p class="text-xl font-bold">NellieB79</p>
+<span class="mt-2 px-3 py-1 bg-blue-900/30 text-blue-300 border border-blue-400/30 text-xs rounded uppercase tracking-tighter">Member</span>
+</aside>
+<!-- Post Content -->
+<div class="w-3/4 p-8 relative">
+<p class="text-xl leading-relaxed">I've always been fascinated by the legends. Plato's accounts are the primary source, but many believe it's allegorical. Have you looked into recent underwater archaeology near the Azores? Some structures are compelling. ✒️</p>
+<div class="absolute bottom-4 left-8 text-sm text-mythos-gold-dim italic">Posted 28 October 18:36</div>
+<div class="absolute bottom-4 right-8 opacity-50">✒️</div>
+</div>
+</div>
+</article>
+<!-- POST 3: Frank -->
+<article class="rounded-lg overflow-hidden border border-mythos-gold/30 shadow-2xl bg-post-bg" data-purpose="forum-post">
+<div class="ornate-border-3 w-full opacity-80"></div>
+<div class="flex min-h-[180px]">
+<!-- User Info -->
+<aside class="w-1/4 p-6 flex flex-col items-center justify-center border-r border-mythos-gold/20">
+<div class="mb-2">
+<span class="text-4xl">✒️</span>
+</div>
+<p class="text-xl font-bold">Frank</p>
+<span class="mt-2 px-3 py-1 bg-blue-900/30 text-blue-300 border border-blue-400/30 text-xs rounded uppercase tracking-tighter">Member</span>
+</aside>
+<!-- Post Content -->
+<div class="w-3/4 p-8 relative">
+<p class="text-xl leading-relaxed">Hello Ivana,</p>
+<p class="text-xl mt-4 leading-relaxed">I specialize in folklore and cryptoroology. While Atlantis is a grand mystery, have you considered the connections between different cultures' flood myths? They might point to a real event. Also, any thoughts on recent Bigfoot sightings in the Pacific Northwest?</p>
+<div class="absolute bottom-4 left-8 text-sm text-mythos-gold-dim italic">Posted 28 October 19:51</div>
+<div class="absolute bottom-4 right-8 opacity-50">✒️</div>
+</div>
+</div>
+</article>
+</section>
+<!-- END: ForumThreads -->
+</main>
+<!-- END: ContentContainer -->
+</body></html><!-- MISSING_IMAGES:
+- Detailed Ornate Dragon/Mythological header borders (using placeholders instead)
+- Original Mythos Forum Logo (using placeholder instead)
+-->
